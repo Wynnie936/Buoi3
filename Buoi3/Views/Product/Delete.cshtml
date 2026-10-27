@@ -1,0 +1,31 @@
+@model Buoi3.Models.Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<h2 class="text-danger">Bạn có chắc chắn muốn xóa sản phẩm này?</h2>
+
+<div class="card col-md-6 border-danger mb-3">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4">Mã SP:</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">Tên sản phẩm:</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Giá:</dt>
+            <dd class="col-sm-8">@Model.Price.ToString("C")</dd>
+
+            <dt class="col-sm-4">Mô tả:</dt>
+            <dd class="col-sm-8">@Model.Description</dd>
+        </dl>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Xóa luôn</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+        </form>
+    </div>
+</div>
